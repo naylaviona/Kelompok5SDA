@@ -31,13 +31,6 @@ Tujuan proyek ini adalah memahami aplikasi algoritma tersebut pada permasalahan 
 
 ---
 
-## Struktur Program
-- `main.cpp`: File utama yang berisi seluruh implementasi.
-- `README.md`: Penjelasan umum tentang proyek.
-- `Laporan.md`: Laporan tugas ini (bisa gabung di README.md kalau mau).
-
----
-
 ## Laporan dan PPT
 1. Clone repository:
    ```bash
