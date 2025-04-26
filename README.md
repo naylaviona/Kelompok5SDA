@@ -18,7 +18,7 @@ Tujuan proyek ini adalah memahami aplikasi algoritma tersebut pada permasalahan 
 
 ## Algoritma yang Diimplementasikan
 ### 1. Dynamic Programming
-- Contoh: Penyelesaian Knapsack Problem.
+- Contoh: Menghitung deret fibonacci.
 - Prinsip: Memecah masalah menjadi sub-masalah kecil, menyimpan hasilnya untuk menghindari perhitungan ulang.
 
 ### 2. Minimum Spanning Tree (MST)
