@@ -19,7 +19,7 @@ int main() {
     cin >> n;
     
     if (n < 0) {
-        cout << "n harus bilangan non-negatif!" << endl;
+        cout << "n harus bilangan yang bukan negatif!" << endl;
     } else {
         cout << "Fibonacci ke-" << n << " adalah: " << fibonacci(n) << endl;
     }
