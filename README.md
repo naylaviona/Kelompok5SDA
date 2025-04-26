@@ -38,9 +38,10 @@ Tujuan proyek ini adalah memahami aplikasi algoritma tersebut pada permasalahan 
 
 ---
 
-## Cara Menjalankan
+## Laporan dan PPT
 1. Clone repository:
    ```bash
    [git clone https://github.com/username/nama-repo.git](https://github.com/ereanoor/Kelompok5SDA.git)
+   https://www.canva.com/design/DAGlvI3Ty10/JWXsUaexBpyWKdXFM2czcQ/edit
 
 
