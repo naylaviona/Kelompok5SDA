@@ -41,6 +41,6 @@ Tujuan proyek ini adalah memahami aplikasi algoritma tersebut pada permasalahan 
 ## Cara Menjalankan
 1. Clone repository:
    ```bash
-   git clone https://github.com/username/nama-repo.git
+   [git clone https://github.com/username/nama-repo.git](https://github.com/ereanoor/Kelompok5SDA.git)
 
 
