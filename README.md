@@ -16,7 +16,7 @@ Tujuan proyek ini adalah memahami aplikasi algoritma tersebut pada permasalahan 
 
 ---
 
-## Algoritma yang Diimplementasikan
+## Application
 ### 1. Dynamic Programming
 Dynamic Programming adalah metode untuk membuat algoritma
 
