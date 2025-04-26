@@ -17,6 +17,7 @@ Tujuan proyek ini adalah memahami aplikasi algoritma tersebut pada permasalahan 
 ---
 
 ## Application
+cd "c:\Users\r. noor fikhri\Documents\SEMESTER 2 SDA UNIB\Kelompok5SDA\"
 ### 1. Dynamic Programming
 Dynamic Programming adalah metode untuk membuat algoritma
 
