@@ -42,6 +42,7 @@ Tujuan proyek ini adalah memahami aplikasi algoritma tersebut pada permasalahan 
 1. Clone repository:
    ```bash
    [git clone https://github.com/username/nama-repo.git](https://github.com/ereanoor/Kelompok5SDA.git)
+2. PPT
    https://www.canva.com/design/DAGlvI3Ty10/JWXsUaexBpyWKdXFM2czcQ/edit
 
 
