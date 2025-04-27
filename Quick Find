@@ -1,0 +1,52 @@
+#include <vector>
+#include <iostream>
+
+class QuickFindUF {
+private:
+    std::vector<int> id;
+
+public:
+    QuickFindUF(int N) {
+        id.resize(N);
+        for (int i = 0; i < N; ++i) {
+            id[i] = i;
+        }
+    }
+
+    bool connected(int p, int q) {
+        return id[p] == id[q];
+    }
+
+    void unionElements(int p, int q) {
+        int pid = id[p];
+        int qid = id[q];
+        for (int i = 0; i < id.size(); ++i) {
+            if (id[i] == pid) {
+                id[i] = qid;
+            }
+        }
+    }
+
+    void printId() {
+        for (int i = 0; i < id.size(); ++i) {
+            std::cout << id[i] << " ";
+        }
+        std::cout << std::endl;
+    }
+};
+
+int main() {
+    int N = 10;
+    QuickFindUF uf(N);
+
+    uf.unionElements(4, 9);
+    uf.unionElements(8, 4);
+
+    std::cout << std::boolalpha;
+    std::cout << "Connected(8, 9): " << uf.connected(8, 9) << std::endl;
+    std::cout << "Connected(5, 0): " << uf.connected(5, 0) << std::endl;
+
+    uf.printId();
+
+    return 0;
+}
