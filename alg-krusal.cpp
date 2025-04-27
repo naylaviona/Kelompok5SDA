@@ -1,77 +1,83 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <climits>
 
 using namespace std;
 
-struct Edge {
-    int src, dest, weight;
+struct Sisi {
+    int asal, tujuan, bobot;
 };
 
-struct Graph {
-    int V, E;
-    vector<Edge> edges;
+struct Graf {
+    int jumlahKota, jumlahSisi;
+    vector<Sisi> daftarSisi;
 };
 
-bool compare(Edge a, Edge b) {
-    return a.weight < b.weight;
+bool bandingkan(Sisi a, Sisi b) {
+    return a.bobot < b.bobot;
 }
 
-int find(int parent[], int i) {
-    if (parent[i] == -1)
+int cariInduk(int induk[], int i) {
+    if (induk[i] == -1)
         return i;
-    return find(parent, parent[i]);
+    return cariInduk(induk, induk[i]);
 }
 
-void unionSet(int parent[], int x, int y) {
-    parent[x] = y;
+void gabungkanSet(int induk[], int x, int y) {
+    induk[x] = y;
 }
 
-void kruskalMST(Graph& graph) {
-        // Mengurutkan edges berdasarkan bobot
-        sort(graph.edges.begin(), graph.edges.end(), compare);
+void kruskalMST(Graf& graf) {
+    // Mengurutkan sisi berdasarkan bobot
+    sort(graf.daftarSisi.begin(), graf.daftarSisi.end(), bandingkan);
 
-        int parent[graph.V];
-        fill_n(parent, graph.V, -1);
-    
-        vector<Edge> result; // Untuk menyimpan hasil MST
-    
-        for (auto edge : graph.edges) {
-            int x = find(parent, edge.src);
-            int y = find(parent, edge.dest);
-    
-            // Jika x dan y tidak berada dalam satu set, tambahkan edge ke MST
-            if (x != y) {
-                result.push_back(edge);
-                unionSet(parent, x, y);
-            }
-        }
-    
-        // Menampilkan MST
-        cout << "Edge \tWeight\n";
-        for (auto edge : result) {
-            cout << (char)('A' + edge.src) << " - " << (char)('A' + edge.dest) << "\t" << edge.weight << endl;
+    int induk[graf.jumlahKota];
+    fill_n(induk, graf.jumlahKota, -1);
+
+    vector<Sisi> hasil; // Untuk menyimpan hasil MST
+
+    for (auto sisi : graf.daftarSisi) {
+        int x = cariInduk(induk, sisi.asal);
+        int y = cariInduk(induk, sisi.tujuan);
+
+        // Jika x dan y tidak berada dalam satu set, tambahkan sisi ke MST
+        if (x != y) {
+            hasil.push_back(sisi);
+            gabungkanSet(induk, x, y);
         }
     }
-    
-    int main() {
-        int V = 5; // Jumlah kota
-        int E = 7; // Jumlah jalan
-    
-        Graph graph;
-        graph.V = V;
-        graph.E = E;
-    
-        // Menambahkan edges ke graf
-        graph.edges.push_back({0, 1, 2}); // A - B
-        graph.edges.push_back({0, 3, 6}); // A - D
-        graph.edges.push_back({1, 2, 3}); // B - C
-        graph.edges.push_back({1, 4, 5}); // B - E
-        graph.edges.push_back({2, 4, 7}); // C - E
-        graph.edges.push_back({3, 4, 9}); // D - E
-        graph.edges.push_back({3, 1, 8}); // D - B
-    
-        kruskalMST(graph);
-    
-        return 0;
+
+    // Menampilkan MST
+    cout << "Jaringan jalan terbaik (Minimum Spanning Tree) dengan Kruskal:" << endl;
+    int totalBiaya = 0;
+    for (auto sisi : hasil) {
+        cout << "Dari kota " << (char)('A' + sisi.asal)
+             << " ke kota " << (char)('A' + sisi.tujuan)
+             << " dengan jarak " << sisi.bobot << endl;
+        totalBiaya += sisi.bobot;
     }
+    cout << "Total jarak seluruh jalan: " << totalBiaya << endl;
+}
+
+int main() {
+    int jumlahKota = 5; // Jumlah kota
+    int jumlahSisi = 8; // Jumlah sisi
+
+    Graf graf;
+    graf.jumlahKota = jumlahKota;
+    graf.jumlahSisi = jumlahSisi;
+
+    graf.daftarSisi.push_back({0, 1, 2}); // A - B
+    graf.daftarSisi.push_back({0, 3, 6}); // A - D
+    graf.daftarSisi.push_back({1, 2, 3}); // B - C
+    graf.daftarSisi.push_back({1, 4, 1}); // B - E
+    graf.daftarSisi.push_back({2, 4, 7}); // C - E
+    graf.daftarSisi.push_back({3, 4, 9}); // D - E
+    graf.daftarSisi.push_back({3, 1, 8}); // D - B
+    graf.daftarSisi.push_back({2, 3, 2}); // C - D
+
+    kruskalMST(graf);
+
+    return 0;
+}
