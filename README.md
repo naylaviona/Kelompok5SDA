@@ -33,6 +33,17 @@ Untuk membuat algoritma menggunakan Dynamic Programming, masalah yang ingin dise
 - Prinsip: Memecah masalah menjadi sub-masalah kecil, menyimpan hasilnya untuk menghindari perhitungan ulang.
 
 ### 2. Minimum Spanning Tree (MST)
+
+Spanning tree adalah sebuah konsep dalam graf, terutama graf yang tidak berarah dan terhubung. Bayangkan kamu punya sebuah peta kota dengan banyak persimpangan (node) dan jalan (edge) yang menghubungkan antar persimpangan itu. Kalau kita ingin tetap bisa pergi dari satu persimpangan ke persimpangan lain, tapi menggunakan sesedikit mungkin jalan, itulah ide dari spanning tree.
+
+Dalam spanning tree, kita memilih beberapa edge dari graf sehingga semua node tetap terhubung, tetapi tidak boleh ada jalur berputar (tidak boleh ada siklus). Jadi, spanning tree adalah sebuah subset dari edge dalam graf, yang cukup untuk membuat semua node terhubung, namun tanpa ada jalur yang membuat kita bisa kembali ke titik awal melalui rute yang berbeda.
+
+Ada satu sifat penting: jika sebuah graf punya V buah node, maka spanning tree-nya akan selalu punya tepat V-1 buah edge. Ini karena setiap kali kita menghubungkan dua node baru, kita hanya butuh satu edge, dan kita terus menambahkan node sampai semuanya terhubung.
+
+Kalau graf asalnya sudah berbentuk tree, artinya dia sudah adalah spanning tree itu sendiri. Tapi kalau grafnya lebih kompleks dan punya banyak jalur alternatif (misalnya banyak siklus), kita harus pilih edge mana saja yang cukup untuk menjaga konektivitas tanpa membentuk putaran.
+
+- Contoh: Menggunakan Algoritma Prim
+- Prinsip: Mulai dari satu node, lalu selalu pilih edge dengan bobot terkecil yang menghubungkan node yang sudah dipilih ke node yang belum dipilih, hingga semua node terhubung.
 - Contoh: Menggunakan Algoritma Kruskal.
 - Prinsip: Menyusun graf berbobot minimum yang menghubungkan seluruh node.
 
