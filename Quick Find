@@ -19,7 +19,7 @@ int i;
 
   void gabungElemen(int p, int q) {
     int pid = id[p];
-    int qid = id[q]p;
+    int qid = id[q];
 
     for (i=0; i<id.size(); ++i) {
       if (id[i] == pid) {
